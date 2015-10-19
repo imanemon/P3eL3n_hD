@@ -131,4 +131,76 @@ class Kepala extends CI_Controller {
 		
 	}
 	
+	public function tiket_kantor(){
+		//ambil data NIP dari Session
+		$nip = $this->session->userdata('nip');
+		
+		$year = date("Y");
+		$month = date("m");
+        
+		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
+		$this->load->model('kepala_model');
+		$tiket_kantor = $this->kepala_model->tiket_kantor($month,$year)->result();
+		
+		
+		// echo "<pre>";
+		// var_dump($tiket_kategori);
+		// echo "</pre>";
+		
+		$data = array(
+			'tiket_kantor' => $tiket_kantor,
+		);
+		
+		$this->session->set_userdata($data);
+		
+		//mengecek previlage pegawai, 4 untuk kepala
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 4){
+			$this->load->view('menu/header',$data);
+			$this->load->view('menu/kepala/tiket_kantor');
+			$this->load->view('menu/footer');
+			$this->load->view('menu/teknisi/plugin');
+		}
+		else {
+			redirect('login/index');
+		}
+		
+	}
+	
+	public function perorangan(){
+		//ambil data NIP dari Session
+		$nip = $this->session->userdata('nip');
+		
+		$year = date("Y");
+		$month = date("m");
+        
+		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
+		$this->load->model('kepala_model');
+		$perorangan = $this->kepala_model->perorangan($month,$year)->result();
+		
+		
+		// echo "<pre>";
+		// var_dump($tiket_kategori);
+		// echo "</pre>";
+		
+		$data = array(
+			'perorangan' => $perorangan,
+		);
+		
+		$this->session->set_userdata($data);
+		
+		//mengecek previlage pegawai, 4 untuk kepala
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 4){
+			$this->load->view('menu/header',$data);
+			$this->load->view('menu/kepala/perorangan');
+			$this->load->view('menu/footer');
+			$this->load->view('menu/teknisi/plugin');
+		}
+		else {
+			redirect('login/index');
+		}
+		
+	}
+	
 }

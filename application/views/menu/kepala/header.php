@@ -159,12 +159,12 @@
 					<li class=""> <a href="javascript:;"> <i class="fa fa-file-text"></i> <span class="title">Laporan Tiket</span> <span class="fa fa-angle-down pull-right"></span> </a>
 						<ul class="sub-menu">
 							<li > <a href="<?php echo base_url('kepala/tiket_kategori')?>"> Tiap Kategori </a> </li>
-							<li > <a href="<?php echo base_url('#')?>"> Tiap Kantor </a> </li>
+							<li > <a href="<?php echo base_url('kepala/tiket_kantor')?>"> Tiap Kantor </a> </li>
 						</ul>
 					</li> 
 					<li class=""> <a href="javascript:;"> <i class="fa fa-file-text"></i> <span class="title">Laporan Pegawai</span> <span class="fa fa-angle-down pull-right"></span>  </a>
 						<ul class="sub-menu">
-							<li > <a href="<?php echo base_url('#')?>"> Perorangan </a> </li>
+							<li > <a href="<?php echo base_url('kepala/perorangan')?>"> Perorangan </a> </li>
 							<li > <a href="<?php echo base_url('#')?>"> Keseluruhan </a> </li>
 						</ul>
 					</li>

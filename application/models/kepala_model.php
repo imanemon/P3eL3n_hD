@@ -8,7 +8,35 @@ class Kepala_model extends CI_Model {
 			// $this->load->library('url');
 			// $this->load->helper("back_handler");
 		}
-    
+	
+	public function nip ($nama_pegawai){
+		$this->db->select('nip');
+		$this->db->from('pegawai');
+		$this->db->where('nama_pegawai',$nama_pegawai);
+		return $this->db->get();
+	}
+	
+	
+	public function perorangan($month,$year){
+        $this->db->select('staf_teknisi,count(id_tiket) as jumlah,pegawai.nama_pegawai,round(avg(durasi)) as rata2');
+        $this->db->from('tiket');
+		$this->db->join('pegawai','tiket.staf_teknisi=pegawai.nip');
+        $this->db->group_by('staf_teknisi');
+        $this->db->where("YEAR(tgl_awal_tiket)",$year);
+		$this->db->where("MONTH(tgl_awal_tiket)",$month);
+        return $this->db->get();
+    }
+	
+	public function tiket_kantor($month,$year){
+        $this->db->select('kantor,count(id_tiket) as jumlah,kantor.nama_kantor,round(avg(durasi)) as rata2');
+        $this->db->from('tiket');
+		$this->db->join('kantor','tiket.kantor=kantor.id_kantor');
+        $this->db->group_by('kantor');
+        $this->db->where("YEAR(tgl_awal_tiket)",$year);
+		$this->db->where("MONTH(tgl_awal_tiket)",$month);
+        return $this->db->get();
+    }
+	
 	public function tiket_kategori($month,$year){
         $this->db->select('kategori,count(id_tiket) as jumlah,kategori.nama_kategori,round(avg(durasi)) as rata2');
         $this->db->from('tiket');
