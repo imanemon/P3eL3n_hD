@@ -118,7 +118,7 @@
 
         <div class="col-md-3 center-margin">
 
-            <form action="<?php echo base_url('daftar/input')?>" method="POST" >
+            <form action="<?php echo base_url('daftar/index')?>" method="POST" >
                 <div class="content-box wow bounceInDown modal-content">
                     <h3 class="content-box-header content-box-header-alt bg-default">
                         <span class="icon-separator" style="padding:0;background:yellow;">
@@ -132,110 +132,7 @@
                     <div class="content-box-wrapper">
                         <div class="form-group">
                             <div class="input-group">
-                                <table>
-								<tr>
-									<td>NIP &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="text" class="form-control" id="nip" name="nip" placeholder="masukkan NIP Anda" required></td>
-								</tr>
-								<tr>
-									<td>Nama &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="text" class="form-control" id="nama" name="nama" placeholder="masukkan Nama Anda" required></td>
-								</tr>
-								<tr>
-									<td>Nomor HP </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="text" class="form-control" id="hp" name="hp" placeholder="masukkan Nomor Handphone Anda" required></td>
-								</tr>
-								<tr>
-									<td>e-Mail &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="email" class="form-control" id="email" name="email" placeholder="masukkan email corporate Anda" required></td>
-								</tr>
-								<tr>
-									<td>Username &nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="text" class="form-control" id="username" name="username" placeholder="masukkan Username Anda" required></td>
-								</tr>
-								<tr>
-									<td>Password &nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td><input type="password" class="form-control" id="password" name="password" placeholder="masukkan Password Anda" required></td>
-								</tr>
-								<tr>
-									<td>Kantor &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td>
-										<select name="kantor" id="cardType" class="select2" style="width:100%" required>
-											<option value="">-- pilih --</option>
-										<?php 
-										foreach ($kantor as $row){
-										// echo $row->nama_kategori;
-										?>
-											<option value="<?php echo $row->id_kantor; ?>"><?php echo $row->nama_kantor; ?></option>
-										<?php 						
-										}
-										?>
-
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td>Jabatan &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td>
-										<select name="jabatan" id="cardType" class="select2" style="width:100%" required>
-											<option value="">-- pilih --</option>
-											<?php 
-											foreach ($jabatan as $row){
-											// echo $row->nama_kategori;
-											?>
-												<option value="<?php echo $row->id_jabatan; ?>"><?php echo $row->nama_jabatan; ?></option>
-											<?php 						
-											}
-											?>
-
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td>Sub Divisi  </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td>
-										<select name="sub_divisi" id="cardType" class="select2" style="width:100%" required>
-											<option value="">-- pilih --</option>
-										<?php 
-										foreach ($sub_divisi as $row){
-										// echo $row->nama_kategori;
-										?>
-											<option value="<?php echo $row->id_sub_divisi; ?>"><?php echo $row->nama_sub_divisi; ?></option>
-										<?php 						
-										}
-										?>
-
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td>Team &nbsp;&nbsp; </td>
-									<td>:&nbsp;&nbsp;</td>
-									<td>
-										<select name="team" id="cardType" class="select2" style="width:100%" >
-											<option value="">-- pilih --</option>
-										<?php 
-										foreach ($team as $row){
-										// echo $row->nama_kategori;
-										?>
-											<option value="<?php echo $row->id_team; ?>"><?php echo $row->nama_team; ?></option>
-										<?php 						
-										}
-										?>
-
-										</select>
-									</td>
-								</tr>
-                                </table>
+                              <h3 align="center">Terima Kasih, Akun anda akan diaktifkan oleh Admin</h3>
                             </div>
                         </div>
                         <button class="btn btn-success btn-block">Daftar</button>

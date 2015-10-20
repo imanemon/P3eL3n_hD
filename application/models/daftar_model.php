@@ -29,6 +29,9 @@ class Daftar_model extends CI_Model {
         $this->db->from('team');
         return $this->db->get();
     }
+	public function masukkan_data($data){
+        $this->db->insert('pegawai', $data);
+    }
 		
 }
  
