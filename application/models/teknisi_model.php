@@ -99,6 +99,15 @@ class Teknisi_model extends CI_Model {
         return $this->db->get();
     }
 	
+	//untuk mengambil sub divisi
+    function getSubDivisi($id) {
+        $this->db->select('*');
+        $this->db->from('customer');
+        $this->db->join('sub_divisi','customer.sub_divisi_customer=sub_divisi.id_sub_divisi');
+		$this->db->where('sub_divisi.id_sub_divisi', $id);
+        return $this->db->get();
+    }
+	
 	//fungsi untuk update 1 table pada tiket setelah teknisi mengambil tugasnya dan status di ubah jadi open
 	function update_tiket($id_tiket,$tgl_mulai) {
 		$data = array(

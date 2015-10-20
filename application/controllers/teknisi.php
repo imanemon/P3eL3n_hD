@@ -132,12 +132,15 @@ class Teknisi extends CI_Controller {
 		$this->load->model('teknisi_model');
         $getData = $this->teknisi_model->getData($id_tiket)->row();
 		$getAttachment = $this->teknisi_model->getAttachment($id_tiket)->row();
+		$getSubDivisi = $this->teknisi_model->getSubDivisi($getData->sub_divisi_customer)->row();
 		
 		//bagian ini akan dilemparkan ke datatables.js
 		$sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table">';
 		$sOut .= '<tr><td>Customer</td><td>:</td><td>'.$getData->nama_customer.'</td></tr>';
+		$sOut .= '<tr><td>Sub Divisi</td><td>:</td><td>'.$getSubDivisi->nama_sub_divisi.'</td></tr>';
 		$sOut .= '<tr><td>Status Tiket</td><td>:</td><td>'.$getData->nama_status.'</td></tr>';
 		$sOut .= '<tr><td>Deskripsi Tiket</td><td>:</td><td>'.$getData->deskripsi_masalah.'</td></tr>';
+		$sOut .= '<tr><td>Pesan Customer</td><td>:</td><td>'.$getData->other.'</td></tr>';
 		if($getAttachment != NULL){
 			$sOut .= '<tr><td>Attachment</td><td>:</td><td><a href="'.base_url().'teknisi/download_file/'.$getAttachment->id_tiket.'/'.$getAttachment->file_name.'" target="_blank">'.$getAttachment->file_name.'</td></tr>';
 		}

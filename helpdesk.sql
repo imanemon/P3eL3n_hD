@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2015-10-19 13:30:01
+Date: 2015-10-20 11:44:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -62,78 +62,78 @@ CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL AUTO_INCREMENT,
   `nama_customer` varchar(255) NOT NULL,
   `no_hp_customer` varchar(255) NOT NULL,
-  `kantor_customer` int(11) NOT NULL,
+  `sub_divisi_customer` int(11) NOT NULL,
   `email_customer` varchar(255) NOT NULL,
   `time` varchar(255) DEFAULT NULL,
   `other` text,
   PRIMARY KEY (`id_customer`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('34', 'Eggy Ryana', '087812347767', '0', 'eggyryana@yahoo.com', '1444466029', 'Pliss atuh benerin, ini masalah perasaan hati :(');
-INSERT INTO `customer` VALUES ('35', 'Eggy Ryana', '087812347767', '0', 'eggyryana@yahoo.com', '1444466045', 'Pliss atuh benerin, ini masalah perasaan hati :(');
-INSERT INTO `customer` VALUES ('36', 'Eggy Ryana', '087812347767', '0', 'eggyryana@yahoo.com', '1444466140', 'Pliss atuh benerin, ini masalah perasaan hati :(');
-INSERT INTO `customer` VALUES ('37', 'Eggy Ryana', '087812347767', '0', 'eggyryana@yahoo.com', '1444466166', 'Pliss atuh benerin, ini masalah perasaan hati :(');
-INSERT INTO `customer` VALUES ('38', 'Eggy Ryana', '087812347767', '0', 'eggyryana@yahoo.com', '1444466436', 'Pliss atuh benerin, ini masalah perasaan hati :(');
-INSERT INTO `customer` VALUES ('39', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466562', 'ada aja');
-INSERT INTO `customer` VALUES ('40', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466614', 'ada aja');
-INSERT INTO `customer` VALUES ('41', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466661', 'ada aja');
-INSERT INTO `customer` VALUES ('42', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466719', 'ada aja');
-INSERT INTO `customer` VALUES ('43', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466747', 'ada aja');
-INSERT INTO `customer` VALUES ('44', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466763', 'ada aja');
-INSERT INTO `customer` VALUES ('45', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466772', 'ada aja');
-INSERT INTO `customer` VALUES ('46', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466803', 'ada aja');
-INSERT INTO `customer` VALUES ('47', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466849', 'ada aja');
-INSERT INTO `customer` VALUES ('48', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444466857', 'ada aja');
-INSERT INTO `customer` VALUES ('49', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444467107', 'ada aja');
-INSERT INTO `customer` VALUES ('50', 'bambang', '090909', '0', 'eggyryana@yahoo.com', '1444467167', 'ada aja');
-INSERT INTO `customer` VALUES ('51', 'Eggy Ryana', '98798798', '0', 'eggyryana@yahoo.com', '1444467218', 'no');
-INSERT INTO `customer` VALUES ('52', 'Eggy Ryana', '98798798', '0', 'eggyryana@yahoo.com', '1444467235', 'no');
-INSERT INTO `customer` VALUES ('53', 'Eggy Ryana', '98798798', '0', 'eggyryana@yahoo.com', '1444467255', 'no');
-INSERT INTO `customer` VALUES ('54', 'Eggy Ryana', '98798798', '0', 'eggyryana@yahoo.com', '1444467352', 'no');
-INSERT INTO `customer` VALUES ('55', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444467486', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('56', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444467513', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('57', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444467937', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('58', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444468311', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('59', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444468340', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('60', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444469085', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('61', 'Eggy Ryana', '0886858586', '0', 'eggyryana@yahoo.com', '1444469103', 'pliss benerin :(');
-INSERT INTO `customer` VALUES ('62', 'kzldg', '', '0', '', '1444545502', '');
-INSERT INTO `customer` VALUES ('63', 'ojkk', '', '0', '', '1444545524', '');
-INSERT INTO `customer` VALUES ('64', 'Iman Muhamad Ramadhan', '081220556459', '0', 'iman.mr@hotmail.com', '1445132666', '');
-INSERT INTO `customer` VALUES ('65', 'Iman Muhamad Ramadhan', '081220556459', '0', 'iman.mr@hotmail.com', '1445132815', '');
-INSERT INTO `customer` VALUES ('66', 'Iman Muhamad Ramadhan', '1', '0', 'a@a.com', '1445133088', '');
-INSERT INTO `customer` VALUES ('67', 'Iman Muhamad Ramadhan', '081220556459', '0', 'zi.ad@ya.ru', '1445133178', '');
-INSERT INTO `customer` VALUES ('68', 'Iman Muhamad Ramadhan', '1', '0', 'a@a.com', '1445133387', '');
-INSERT INTO `customer` VALUES ('69', '1', '1', '0', 'a@a.com', '1445133474', '');
-INSERT INTO `customer` VALUES ('70', '2', '2', '0', 'a@a.com', '1445133539', '2');
-INSERT INTO `customer` VALUES ('71', 'f', '1', '0', 'a@a.com', '1445133882', '');
-INSERT INTO `customer` VALUES ('72', '11', '11', '0', 'a@a.com', '1445133944', '1');
-INSERT INTO `customer` VALUES ('73', 'iman', '1', '0', 'a@a.com', '1445134041', '1');
-INSERT INTO `customer` VALUES ('74', '1', '1', '0', 'a@a.com', '1445134164', '1');
-INSERT INTO `customer` VALUES ('75', '1', '1', '0', 'a@a.com', '1445140680', '1');
-INSERT INTO `customer` VALUES ('76', '1', '1', '0', 'a@a.com', '1445140842', '1');
-INSERT INTO `customer` VALUES ('77', 'iman', '1', '0', 'a@a.com', '1445141421', '1');
-INSERT INTO `customer` VALUES ('78', 'iman', '1', '0', 'a@a.com', '1445141439', '1');
-INSERT INTO `customer` VALUES ('79', '1', '1', '0', 'a@a.com', '1445141923', '1');
-INSERT INTO `customer` VALUES ('80', '1', '1', '0', 'a@a.com', '1445141961', '1');
-INSERT INTO `customer` VALUES ('81', '1', '1', '0', 'a@a.com', '1445141997', '1');
-INSERT INTO `customer` VALUES ('82', '1', '1', '0', 'a@a.com', '1445142062', '1');
-INSERT INTO `customer` VALUES ('83', '1', '1', '0', 'a@a.com', '1445142115', '1');
-INSERT INTO `customer` VALUES ('84', '1', '1', '0', 'a@a.com', '1445142186', '1');
-INSERT INTO `customer` VALUES ('85', 'Radian Pradana', '081220556459', '0', 'a@a.com', '1445226183', '');
-INSERT INTO `customer` VALUES ('86', 'Endah Nur Salehah', '081220556459', '0', 'a@a.com', '1445226777', '');
-INSERT INTO `customer` VALUES ('87', 'Endah Nur Salehah', '081220556459', '0', 'a@a.com', '1445226884', '');
-INSERT INTO `customer` VALUES ('88', 'Rosa Ariani Sukamto', '0', '0', 'a@a.com', '1445227045', '');
-INSERT INTO `customer` VALUES ('89', 'a', '1', '0', 'a@a.com', '1445227191', '');
-INSERT INTO `customer` VALUES ('90', 'a', '1', '0', 'a@a.com', '1445227300', '');
-INSERT INTO `customer` VALUES ('91', 'a', 'a', '0', 'a@a.com', '1445227448', '');
-INSERT INTO `customer` VALUES ('92', 'a', 'a', '0', 'a@a.com', '1445227475', '');
-INSERT INTO `customer` VALUES ('93', 'Azwar Mathari', '1', '0', 'a@a.com', '1445227657', '1');
-INSERT INTO `customer` VALUES ('94', 'Syabila Sondaka', '1', '0', 'a@a.com', '1445227745', '');
-INSERT INTO `customer` VALUES ('95', 'Endah Azwarudin', '1', '0', 'a@a.com', '1445227858', '');
+INSERT INTO `customer` VALUES ('34', 'Eggy Ryana', '087812347767', '17', 'eggyryana@yahoo.com', '1444466029', 'Pliss atuh benerin, ini masalah perasaan hati :(');
+INSERT INTO `customer` VALUES ('35', 'Eggy Ryana', '087812347767', '17', 'eggyryana@yahoo.com', '1444466045', 'Pliss atuh benerin, ini masalah perasaan hati :(');
+INSERT INTO `customer` VALUES ('36', 'Eggy Ryana', '087812347767', '17', 'eggyryana@yahoo.com', '1444466140', 'Pliss atuh benerin, ini masalah perasaan hati :(');
+INSERT INTO `customer` VALUES ('37', 'Eggy Ryana', '087812347767', '17', 'eggyryana@yahoo.com', '1444466166', 'Pliss atuh benerin, ini masalah perasaan hati :(');
+INSERT INTO `customer` VALUES ('38', 'Eggy Ryana', '087812347767', '17', 'eggyryana@yahoo.com', '1444466436', 'Pliss atuh benerin, ini masalah perasaan hati :(');
+INSERT INTO `customer` VALUES ('39', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466562', 'ada aja');
+INSERT INTO `customer` VALUES ('40', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466614', 'ada aja');
+INSERT INTO `customer` VALUES ('41', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466661', 'ada aja');
+INSERT INTO `customer` VALUES ('42', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466719', 'ada aja');
+INSERT INTO `customer` VALUES ('43', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466747', 'ada aja');
+INSERT INTO `customer` VALUES ('44', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466763', 'ada aja');
+INSERT INTO `customer` VALUES ('45', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466772', 'ada aja');
+INSERT INTO `customer` VALUES ('46', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466803', 'ada aja');
+INSERT INTO `customer` VALUES ('47', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466849', 'ada aja');
+INSERT INTO `customer` VALUES ('48', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444466857', 'ada aja');
+INSERT INTO `customer` VALUES ('49', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444467107', 'ada aja');
+INSERT INTO `customer` VALUES ('50', 'bambang', '090909', '17', 'eggyryana@yahoo.com', '1444467167', 'ada aja');
+INSERT INTO `customer` VALUES ('51', 'Eggy Ryana', '98798798', '17', 'eggyryana@yahoo.com', '1444467218', 'no');
+INSERT INTO `customer` VALUES ('52', 'Eggy Ryana', '98798798', '17', 'eggyryana@yahoo.com', '1444467235', 'no');
+INSERT INTO `customer` VALUES ('53', 'Eggy Ryana', '98798798', '17', 'eggyryana@yahoo.com', '1444467255', 'no');
+INSERT INTO `customer` VALUES ('54', 'Eggy Ryana', '98798798', '17', 'eggyryana@yahoo.com', '1444467352', 'no');
+INSERT INTO `customer` VALUES ('55', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444467486', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('56', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444467513', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('57', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444467937', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('58', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444468311', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('59', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444468340', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('60', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444469085', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('61', 'Eggy Ryana', '0886858586', '17', 'eggyryana@yahoo.com', '1444469103', 'pliss benerin :(');
+INSERT INTO `customer` VALUES ('62', 'kzldg', '', '17', '', '1444545502', '');
+INSERT INTO `customer` VALUES ('63', 'ojkk', '', '17', '', '1444545524', '');
+INSERT INTO `customer` VALUES ('64', 'Iman Muhamad Ramadhan', '081220556459', '17', 'iman.mr@hotmail.com', '1445132666', '');
+INSERT INTO `customer` VALUES ('65', 'Iman Muhamad Ramadhan', '081220556459', '17', 'iman.mr@hotmail.com', '1445132815', '');
+INSERT INTO `customer` VALUES ('66', 'Iman Muhamad Ramadhan', '1', '17', 'a@a.com', '1445133088', '');
+INSERT INTO `customer` VALUES ('67', 'Iman Muhamad Ramadhan', '081220556459', '17', 'zi.ad@ya.ru', '1445133178', '');
+INSERT INTO `customer` VALUES ('68', 'Iman Muhamad Ramadhan', '1', '17', 'a@a.com', '1445133387', '');
+INSERT INTO `customer` VALUES ('69', '1', '1', '17', 'a@a.com', '1445133474', '');
+INSERT INTO `customer` VALUES ('70', '2', '2', '17', 'a@a.com', '1445133539', '2');
+INSERT INTO `customer` VALUES ('71', 'f', '1', '17', 'a@a.com', '1445133882', '');
+INSERT INTO `customer` VALUES ('72', '11', '11', '17', 'a@a.com', '1445133944', '1');
+INSERT INTO `customer` VALUES ('73', 'iman', '1', '17', 'a@a.com', '1445134041', '1');
+INSERT INTO `customer` VALUES ('74', '1', '1', '17', 'a@a.com', '1445134164', '1');
+INSERT INTO `customer` VALUES ('75', '1', '1', '17', 'a@a.com', '1445140680', '1');
+INSERT INTO `customer` VALUES ('76', '1', '1', '17', 'a@a.com', '1445140842', '1');
+INSERT INTO `customer` VALUES ('77', 'iman', '1', '17', 'a@a.com', '1445141421', '1');
+INSERT INTO `customer` VALUES ('78', 'iman', '1', '17', 'a@a.com', '1445141439', '1');
+INSERT INTO `customer` VALUES ('79', '1', '1', '17', 'a@a.com', '1445141923', '1');
+INSERT INTO `customer` VALUES ('80', '1', '1', '17', 'a@a.com', '1445141961', '1');
+INSERT INTO `customer` VALUES ('81', '1', '1', '17', 'a@a.com', '1445141997', '1');
+INSERT INTO `customer` VALUES ('82', '1', '1', '17', 'a@a.com', '1445142062', '1');
+INSERT INTO `customer` VALUES ('83', '1', '1', '17', 'a@a.com', '1445142115', '1');
+INSERT INTO `customer` VALUES ('84', '1', '1', '17', 'a@a.com', '1445142186', '1');
+INSERT INTO `customer` VALUES ('85', 'Radian Pradana', '081220556459', '17', 'a@a.com', '1445226183', '');
+INSERT INTO `customer` VALUES ('86', 'Endah Nur Salehah', '081220556459', '17', 'a@a.com', '1445226777', '');
+INSERT INTO `customer` VALUES ('87', 'Endah Nur Salehah', '081220556459', '17', 'a@a.com', '1445226884', '');
+INSERT INTO `customer` VALUES ('88', 'Rosa Ariani Sukamto', '0', '17', 'a@a.com', '1445227045', '');
+INSERT INTO `customer` VALUES ('89', 'a', '1', '17', 'a@a.com', '1445227191', '');
+INSERT INTO `customer` VALUES ('90', 'a', '1', '17', 'a@a.com', '1445227300', '');
+INSERT INTO `customer` VALUES ('91', 'a', 'a', '17', 'a@a.com', '1445227448', '');
+INSERT INTO `customer` VALUES ('92', 'a', 'a', '17', 'a@a.com', '1445227475', '');
+INSERT INTO `customer` VALUES ('93', 'Azwar Mathari', '1', '17', 'a@a.com', '1445227657', '1');
+INSERT INTO `customer` VALUES ('94', 'Syabila Sondaka', '1', '17', 'a@a.com', '1445227745', '');
+INSERT INTO `customer` VALUES ('95', 'Endah Azwarudin', '1', '17', 'a@a.com', '1445227858', '');
 
 -- ----------------------------
 -- Table structure for `dampak`
@@ -307,11 +307,14 @@ CREATE TABLE `pegawai` (
 -- ----------------------------
 -- Records of pegawai
 -- ----------------------------
-INSERT INTO `pegawai` VALUES ('AD', 'admin', '0', 'dummy@dymm.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2015-10-15 08:06:59', '2015-10-19 12:26:34', '2', '8', '17', null, '21232f297a57a5a743894a0e4a801fc3', null, null);
-INSERT INTO `pegawai` VALUES ('HD', 'Helpdesk Dummy', '0', 'dummy@dummy.com', 'helpdesk', '288682ec5f2450588bb37a4523d11616', '2015-10-04 23:35:04', '2015-10-19 11:38:00', '2', '6', '17', null, '288682ec5f2450588bb37a4523d11616', null, null);
-INSERT INTO `pegawai` VALUES ('KD', 'Kepala Deputi', '0', 'dummy@dummy.com', 'kepala', '870f669e4bbbfa8a6fde65549826d1c4', '2015-10-14 08:19:45', '2015-10-19 11:38:19', '2', '4', '17', null, '870f669e4bbbfa8a6fde65549826d1c4', null, null);
+INSERT INTO `pegawai` VALUES ('1', 'Iman Muhamad Ramadhan', '1', 'a@a.com', '1', 'c4ca4238a0b923820dcc509a6f75849b', '2015-10-20 10:53:23', null, '2', '6', '17', '0', '0', null, null);
+INSERT INTO `pegawai` VALUES ('2', '2', '2', 'a@a.com', '2', 'c81e728d9d4c2f636f067f89cc14862c', '2015-10-20 10:57:03', null, '1', '1', '1', null, '0', null, null);
+INSERT INTO `pegawai` VALUES ('3', '3', '3', 'a@a.com', '3', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', '2015-10-20 10:59:31', null, '2', '1', '17', null, '0', null, null);
+INSERT INTO `pegawai` VALUES ('AD', 'admin', '0', 'dummy@dymm.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2015-10-15 08:06:59', '2015-10-20 10:59:42', '2', '8', '17', null, '21232f297a57a5a743894a0e4a801fc3', null, null);
+INSERT INTO `pegawai` VALUES ('HD', 'Helpdesk Dummy', '0', 'dummy@dummy.com', 'helpdesk', '288682ec5f2450588bb37a4523d11616', '2015-10-04 23:35:04', '2015-10-20 11:02:14', '2', '6', '17', null, '288682ec5f2450588bb37a4523d11616', null, null);
+INSERT INTO `pegawai` VALUES ('KD', 'Kepala Deputi', '0', 'dummy@dummy.com', 'kepala', '870f669e4bbbfa8a6fde65549826d1c4', '2015-10-14 08:19:45', '2015-10-20 06:36:19', '2', '4', '17', null, '870f669e4bbbfa8a6fde65549826d1c4', null, null);
 INSERT INTO `pegawai` VALUES ('TS', 'Teknisi Dummy', '0', 'dummy@dummy.com', 'teknisi', 'e21394aaeee10f917f581054d24b031f', '2015-10-04 23:32:41', '2015-10-19 11:46:10', '2', '7', '17', null, 'e21394aaeee10f917f581054d24b031f', null, null);
-INSERT INTO `pegawai` VALUES ('TS1', 'Teknisi 1', '0', 'dummy@dummy.com', 'teknisi1', '491b4c7ab9757487389b0fbea6a1d2ea', '2015-10-15 06:52:35', '2015-10-19 10:43:16', '2', '7', '17', '1', '0', '2015-10-19 12:28:39', 'AD');
+INSERT INTO `pegawai` VALUES ('TS1', 'Teknisi 1', '0', 'dummy@dummy.com', 'teknisi1', '491b4c7ab9757487389b0fbea6a1d2ea', '2015-10-15 06:52:35', '2015-10-20 06:36:58', '2', '7', '17', '1', '491b4c7ab9757487389b0fbea6a1d2ea', '2015-10-20 06:36:47', 'AD');
 INSERT INTO `pegawai` VALUES ('TS2', 'Teknisi 2', '0', 'dummy@dymmy.com', 'teknisi2', '3a4bd8b8554827fe98db41e5ac1950b6', '2015-10-15 06:53:14', null, '2', '7', '17', '1', '0', null, null);
 
 -- ----------------------------
@@ -429,7 +432,7 @@ CREATE TABLE `tiket` (
   CONSTRAINT `fk_level` FOREIGN KEY (`level_prioritas`) REFERENCES `level_prioritas` (`id_level`),
   CONSTRAINT `fk_staf_helpdesk` FOREIGN KEY (`staf_helpdesk`) REFERENCES `pegawai` (`nip`),
   CONSTRAINT `fk_status` FOREIGN KEY (`status`) REFERENCES `kode_status` (`id_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tiket
@@ -481,10 +484,10 @@ INSERT INTO `tiket` VALUES ('57', 'Laptop saya kok patah', '2015-10-19 10:57:25'
 INSERT INTO `tiket` VALUES ('58', 'a', '2015-10-19 10:59:51', null, null, '2323', 'a', 'HD', 'TS1', '89', '2', '6', '1', '1', '1', null, null);
 INSERT INTO `tiket` VALUES ('59', 'a', '2015-10-19 11:01:40', null, null, '2321', 'a', 'HD', 'TS1', '90', '2', '1', '1', '1', '1', null, null);
 INSERT INTO `tiket` VALUES ('60', 'a', '2015-10-19 11:04:08', null, null, '1122', 'a', 'HD', 'TS1', '91', '2', '1', '1', '1', '2', null, null);
-INSERT INTO `tiket` VALUES ('61', 'a', '2015-10-19 11:04:35', null, null, null, 'a', 'HD', 'TS1', '92', '2', '1', '1', '1', '1', null, null);
-INSERT INTO `tiket` VALUES ('62', 'Wifi SDM Mati', '2015-10-19 11:07:38', null, null, null, 'a', 'HD', 'TS1', '93', '2', '6', '1', '1', '1', null, null);
-INSERT INTO `tiket` VALUES ('63', 'Sistem Akutansinya gak jalan', '2015-10-19 11:09:06', null, null, null, 'a', 'HD', 'TS1', '94', '2', '11', '1', '1', '1', null, null);
-INSERT INTO `tiket` VALUES ('64', 'Modul WIfi belum kelar', '2015-10-19 11:10:58', null, null, null, 'a', 'HD', 'TS1', '95', '2', '4', '1', '1', '1', null, null);
+INSERT INTO `tiket` VALUES ('61', 'a', '2015-10-19 11:04:35', null, null, '1122', 'a', 'HD', 'TS1', '92', '2', '1', '1', '1', '1', null, null);
+INSERT INTO `tiket` VALUES ('62', 'Wifi SDM Mati', '2015-10-19 11:07:38', null, null, '2323', 'a', 'HD', 'TS1', '93', '2', '6', '1', '1', '1', null, null);
+INSERT INTO `tiket` VALUES ('63', 'Sistem Akutansinya gak jalan', '2015-10-19 11:09:06', null, null, '2321', 'a', 'HD', 'TS1', '94', '2', '11', '1', '1', '1', null, null);
+INSERT INTO `tiket` VALUES ('64', 'Modul WIfi belum kelar', '2015-10-19 11:10:58', null, null, '1122', 'a', 'HD', 'TS1', '95', '2', '4', '1', '1', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `user`
