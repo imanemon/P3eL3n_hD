@@ -10,6 +10,16 @@ class Helpdesk extends CI_Controller {
 	}
  
 	public function dashboard() {
+		// tes
+		$nip = $this->session->userdata('nip');
+		$team = $this->session->userdata('team');
+		if($team == NULL){
+			$team = "0";
+		}
+        $this->load->model('helpdesk_model');
+        $tugas_new = $this->helpdesk_model->tugas_baru()->result();
+		
+		
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
@@ -35,31 +45,13 @@ class Helpdesk extends CI_Controller {
 		//menghitung semua tiket bulan ini
 		$hari_ini = $this->general_model->hari_ini($date);
 
-		//menghitung semua tugas milik sendiri
-		$new_bulan_ini = $this->teknisi_model->new_bulan_ini($month, $year, $nip,$team);
-		
-		//menghitung semua tugas milik sendiri yang belum terselesaikan
-		$open_bulan_ini = $this->teknisi_model->open_bulan_ini($month, $year, $nip,$team);
-		
-		//menghitung semua tugas milik sendiri yang sudah terselesaikan
-		$close_bulan_ini = $this->teknisi_model->close_bulan_ini($month, $year, $nip,$team);
-		
-		//menghitung tugas baru, tugas yang akan dilaporkan dan tugas yang perlu dibuatkan tutorial solusi
-		$count_tugas_baru = $this->teknisi_model->count_tugas_baru($nip,$team);
-		$count_lapor_selesai = $this->teknisi_model->count_lapor_selesai($nip,$team);
-		$count_buat_solusi = $this->teknisi_model->count_buat_solusi($nip,$team);
 
 		//daftarkan session
 		$data = array(
 			'tahun_ini' => $tahun_ini,
 			'bulan_ini' => $bulan_ini,
 			'hari_ini' => $hari_ini,
-			'new_bulan_ini' => $new_bulan_ini,
-			'open_bulan_ini' => $open_bulan_ini,
-			'close_bulan_ini' => $close_bulan_ini,
-			// 'count_tugas_baru' => $count_tugas_baru,
-			'count_lapor_selesai' => $count_lapor_selesai,
-			'count_buat_solusi' => $count_buat_solusi,
+			'tugas_new' => $tugas_new,
 		);
 		$this->session->set_userdata($data);
 		
@@ -67,7 +59,7 @@ class Helpdesk extends CI_Controller {
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 6){
 			$this->load->view('menu/header',$data);
-			$this->load->view('menu/teknisi/dashboard');
+			$this->load->view('menu/helpdesk/dashboard');
 			$this->load->view('menu/footer');
 			$this->load->view('menu/teknisi/plugin');
 		}
@@ -102,6 +94,7 @@ class Helpdesk extends CI_Controller {
 // dampak
         $dampak = $this->helpdesk_model->getDampak()->result();
         $kantor = $this->helpdesk_model->getKantor()->result();
+        $sub_divisi = $this->helpdesk_model->getSubDivisi()->result();
 		
 //          daftarkan session
 		$data = array(
@@ -110,6 +103,7 @@ class Helpdesk extends CI_Controller {
 			'level_prioritas' => $level_prioritas,
 			'dampak' => $dampak,
 			'kantor' => $kantor,
+			'sub_divisi' => $sub_divisi,
 			'team' => $Team,
 		);
 		
@@ -136,6 +130,7 @@ class Helpdesk extends CI_Controller {
 		$nomor_hp = $_POST['nomor_hp'];
 		$email = $_POST['email'];
 		$other = $_POST['other'];
+		$sub_divisi = $_POST['sub_divisi'];
 		
 		$date = time("Y-m-d H:i:s");
 		// echo "-----" . $date . "-----";
@@ -143,6 +138,7 @@ class Helpdesk extends CI_Controller {
 		$data1 = array(
 			'nama_customer' => $nama,
 			'no_hp_customer' => $nomor_hp,
+			'sub_divisi_customer' => $sub_divisi,
 			'email_customer' => $email,
 			'other' => $other,
 			'time' => $date,

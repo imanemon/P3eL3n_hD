@@ -64,6 +64,12 @@ class Helpdesk_model extends CI_Model {
         return $this->db->get();
     }
 	
+	function getSubDivisi() {
+        $this->db->select('*');
+        $this->db->from('sub_divisi');
+        return $this->db->get();
+    }
+	
 	function update_lampiran($id,$lampiran) {
         $data = array(
                'lampiran' => $lampiran,

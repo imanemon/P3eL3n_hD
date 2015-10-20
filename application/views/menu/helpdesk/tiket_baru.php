@@ -48,21 +48,42 @@
 							<input type="email" name="email" id="form1CardNumber" class="form-control" />
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="semi-bold">Kantor</label>
-						<div class="right">                                       
-							<select name="kantor" class="select2" style="width:100%" required>
-							<option value="">-- pilih --</option>
-							<?php 
-							foreach ($kantor as $row){
-							// echo $row->nama_kategori;
-							?>
-								<option value="<?php echo $row->id_kantor; ?>"><?php echo $row->nama_kantor; ?></option>
-							<?php 						
-							}
-							?>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="semi-bold">Kantor</label>
+							<div class="right">                                       
+								<select name="kantor" class="select2" style="width:100%" required>
+								<option value="">-- pilih --</option>
+								<?php 
+								foreach ($kantor as $row){
+								// echo $row->nama_kategori;
+								?>
+									<option value="<?php echo $row->id_kantor; ?>"><?php echo $row->nama_kantor; ?></option>
+								<?php 						
+								}
+								?>
 
-							</select>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="semi-bold">Sub Divisi</label>
+							<div class="right">                                       
+								<select name="sub_divisi" class="select2" style="width:100%" required>
+								<option value="">-- pilih --</option>
+								<?php 
+								foreach ($sub_divisi as $row){
+								// echo $row->nama_kategori;
+								?>
+									<option value="<?php echo $row->id_sub_divisi; ?>"><?php echo $row->nama_sub_divisi; ?></option>
+								<?php 						
+								}
+								?>
+
+								</select>
+							</div>
 						</div>
 					</div>
 
