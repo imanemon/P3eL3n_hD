@@ -16,7 +16,7 @@
         <div class="span12">
           <div class="grid simple ">
             <div class="grid-title">
-              <h4><span class="semi-bold">Tugas Yang Belum Diambil</span></h4>
+              <h4><span class="semi-bold">Tugas Yang Sedang Dikerjakan</span></h4>
             </div>
             <div class="grid-body ">
               <table class="table table-striped" id="example2" >

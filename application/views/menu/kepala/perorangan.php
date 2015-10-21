@@ -17,66 +17,6 @@
 
 	<!-- content --> 
     <div class="content sm-gutter">
-	<form  method="POST" action="<?php echo base_url('kepala/get_tiket_kategori'); ?>" enctype="multipart/form-data">   
-		<div class="page-title">
-		</div>
-		<!-- BEGIN DASHBOARD TILES --> 
-		<div class="row">
-			<div class="grid simple">
-				<div class="grid-title no-border">
-					<h4><span class="semi-bold">Laporan Tiket tiap Kategori</span></h4>
-					<div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-				</div>
-				<div class="grid-body no-border">
-					<div class="col-md-3">
-						<div class="form-group">
-							<label class="semi-bold">Pilih Kategori</label>
-							<div class="  right">                                       
-								<i class=""></i>
-								<select name="teknisi" id="cardType" class="select2" style="width:100%" required>
-									<option value="">-- pilih --</option>
-								<?php 
-								foreach ($teknisi as $row){
-								// echo $row->nip;
-								?>
-									<option value="<?php echo $row->nip; ?>"><?php echo $row->nama_pegawai; ?></option>
-								<?php 						
-								}
-								?>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="form-group">
-							<label class="semi-bold">Pilih Bulan</label>
-							<div class="  right">                                       
-								<i class=""></i>
-								<select name="kategori" id="cardType" class="select2" style="width:100%" required>
-									<option value="">-- pilih --</option>
-								<?php 
-								foreach ($kategori as $row){
-								// echo $row->nama_kategori;
-								?>
-									<option value="<?php echo $row->id_kategori; ?>"><?php echo $row->nama_kategori; ?></option>
-								<?php 						
-								}
-								?>
-
-								</select>
-							</div>
-						</div>
-					</div>					
-					<input type="hidden" name="status" id="form1CardNumber" class="form-control" value="1">                                 
-				</div>
-			</div>				
-		</div>
-		<div class="pull-right">
-			<button type="submit" class="btn btn-success btn-cons">Generate</button>
-		</div>
-	</form>
-	 
 	<!-- BEGIN DASHBOARD TILES -->
 	  <div class="row">	 
 		<div class="row-fluid">

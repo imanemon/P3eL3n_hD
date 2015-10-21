@@ -50,8 +50,12 @@ class Teknisi extends CI_Controller {
 		$count_lapor_selesai = $this->teknisi_model->count_lapor_selesai($nip,$team);
 		$count_buat_solusi = $this->teknisi_model->count_buat_solusi($nip,$team);
 
+		$this->load->model('teknisi_model');
+		$tugas_baru = $this->teknisi_model->tugas_baru($nip,$team)->result();
+		
 		//daftarkan session
 		$data = array(
+			'tugas_baru' => $tugas_baru,
 			'tahun_ini' => $tahun_ini,
 			'bulan_ini' => $bulan_ini,
 			'hari_ini' => $hari_ini,
@@ -125,6 +129,8 @@ class Teknisi extends CI_Controller {
 	}
 	
 	public function getData(){
+		$nip = $this->session->userdata('nip');
+		
 		//mengambil id_tiket dari form
 		$id_tiket = $this->input->post('id');
 		
@@ -136,6 +142,11 @@ class Teknisi extends CI_Controller {
 		
 		//bagian ini akan dilemparkan ke datatables.js
 		$sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table">';
+		if($getData->taken_by != NULL){
+			if($getData->taken_by != $nip){
+				$sOut .= '<tr><td>Ditangani Oleh</td><td>:</td><td>'.$getData->nama_pegawai.'</td></tr>';
+			}
+		}
 		$sOut .= '<tr><td>Customer</td><td>:</td><td>'.$getData->nama_customer.'</td></tr>';
 		$sOut .= '<tr><td>Sub Divisi</td><td>:</td><td>'.$getSubDivisi->nama_sub_divisi.'</td></tr>';
 		$sOut .= '<tr><td>Status Tiket</td><td>:</td><td>'.$getData->nama_status.'</td></tr>';
@@ -150,12 +161,18 @@ class Teknisi extends CI_Controller {
 	}
 	
 	public function update_tiket(){	
+		//ambil data NIP dari Session
+		$nip = $this->session->userdata('nip');
+		$team = $this->session->userdata('team');
+		if($team == NULL){
+			$team = "0";
+		}
 		//menentukan tanggal saat pegawai mengklik 'kerjakan'
 		$tanggal_mulai = date("Y-m-d H:i:s", strtotime('+5 hours'));
 		
 		//memanggil model untuk melakukan update pada fungsi update_tiket di model
 		$this->load->model('teknisi_model');
-		$this->teknisi_model->update_tiket($this->input->post('id_tiket'), $tanggal_mulai);
+		$this->teknisi_model->update_tiket($this->input->post('id_tiket'), $tanggal_mulai,$nip);
 		
 		//mengecek previlage dari pegawai, 7 untuk teknisi
 		$data = $this->session->userdata();

@@ -162,28 +162,9 @@
 							<li > <a href="<?php echo base_url('kepala/tiket_kantor')?>"> Tiap Kantor </a> </li>
 						</ul>
 					</li> 
-					<li class=""> <a href="javascript:;"> <i class="fa fa-file-text"></i> <span class="title">Laporan Pegawai</span> <span class="fa fa-angle-down pull-right"></span>  </a>
-						<ul class="sub-menu">
-							<li > <a href="<?php echo base_url('kepala/perorangan')?>"> Perorangan </a> </li>
-							<li > <a href="<?php echo base_url('#')?>"> Keseluruhan </a> </li>
-						</ul>
-					</li>
+					<li class=""> <a href="<?php echo base_url('kepala/perorangan')?>"> <i class="fa fa-file-text"></i> <span class="title">Laporan Pegawai</span>  </a></li>
 				</ul>
 			<?php		
-			}
-		 
-			elseif($level == 4)
-			{
-				?>
-				<ul>
-					<li class="start "> <a href="index.html" > <i class="icon-custom-home"></i> <span class="title">Menu Superadmin</span> <span class="selected"></span></a></li>
-					<li class=""> <a href="widgets.html"> <i class="fa fa-th"></i> <span class="title">Widgets</span></a> </li>
-				</ul>
-			<?php
-			}
-			else
-			{
-				echo "<p>Anda login sebagai <b>". $username . "</b> .Level belum di setting, kontak admin.</p>";
 			}
 		?>
       <!-- END SIDEBAR MENU -->

@@ -86,14 +86,6 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<label class="semi-bold">Other</label>
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="other" id="form1CardNumber" class="form-control" />                                 
-						</div>
-					</div>
 				</div>
 			</div>		
 		</div>
@@ -118,12 +110,19 @@
 					
 						</div>
 					</div>
+					<div class="form-group">
+						<label class="semi-bold">Pesan Khusus</label>
+						<div class="input-with-icon  right">                                       
+							<i class=""></i>
+							<input type="text" name="other" id="form1CardNumber" class="form-control" />                                 
+						</div>
+					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="semi-bold">Pilih Teknisi</label>
 							<div class="  right">                                       
 								<i class=""></i>
-								<select name="teknisi" id="cardType" class="select2" style="width:100%" required>
+								<select name="teknisi" id="cardType" class="select2" style="width:100%">
 									<option value="">-- pilih --</option>
 								<?php 
 								foreach ($teknisi as $row){

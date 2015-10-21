@@ -1,3 +1,0 @@
-Dokumentasi Instalasi Helpdesk
-
-- ganti base_url pada config->config.php menjadi lokasi hostingnya

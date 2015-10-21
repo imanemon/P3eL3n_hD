@@ -138,21 +138,18 @@ class Admin extends CI_Controller {
 	}
 	
 	
-	public function edit_jabatan() {
+	public function edit_pegawai() {
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
-		$team = $this->session->userdata('team');
-		if($team == NULL){
-			$team = "0";
-		}
+		
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('admin_model');
-		$aktivasi = $this->admin_model->aktivasi()->result();
+		$edit_pegawai = $this->admin_model->edit_pegawai()->result();
 		// print_r($aktivasi);
 		
 		//daftarkan session
 		$data = array(
-			'aktivasi' => $aktivasi,
+			'edit_pegawai' => $edit_pegawai,
 		);
 		$this->session->set_userdata($data);
 		
@@ -160,7 +157,7 @@ class Admin extends CI_Controller {
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 8){
 			$this->load->view('menu/header',$data);
-			$this->load->view('menu/admin/edit_jabatan');
+			$this->load->view('menu/admin/edit_pegawai');
 			$this->load->view('menu/footer');
 			$this->load->view('menu/teknisi/plugin');
 		}

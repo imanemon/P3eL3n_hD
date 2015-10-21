@@ -120,9 +120,9 @@ class Kepala extends CI_Controller {
 		//mengecek previlage pegawai, 4 untuk kepala
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 4){
-			$this->load->view('menu/header',$data);
+			$this->load->view('menu/kepala/header',$data);
 			$this->load->view('menu/kepala/tiket_kategori');
-			$this->load->view('menu/footer');
+			$this->load->view('menu/kepala/footer');
 			$this->load->view('menu/teknisi/plugin');
 		}
 		else {
@@ -156,9 +156,9 @@ class Kepala extends CI_Controller {
 		//mengecek previlage pegawai, 4 untuk kepala
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 4){
-			$this->load->view('menu/header',$data);
+			$this->load->view('menu/kepala/header',$data);
 			$this->load->view('menu/kepala/tiket_kantor');
-			$this->load->view('menu/footer');
+			$this->load->view('menu/kepala/footer');
 			$this->load->view('menu/teknisi/plugin');
 		}
 		else {
@@ -192,9 +192,9 @@ class Kepala extends CI_Controller {
 		//mengecek previlage pegawai, 4 untuk kepala
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 4){
-			$this->load->view('menu/header',$data);
+			$this->load->view('menu/kepala/header',$data);
 			$this->load->view('menu/kepala/perorangan');
-			$this->load->view('menu/footer');
+			$this->load->view('menu/kepala/footer');
 			$this->load->view('menu/teknisi/plugin');
 		}
 		else {

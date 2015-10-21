@@ -18,7 +18,7 @@
         <div class="span12">
           <div class="grid simple ">
             <div class="grid-title">
-              <h4><span class="semi-bold">Rekap Tugas Anda</span></h4>
+              <h4><span class="semi-bold">Knowledge Base</span></h4>
             </div>
             <div class="grid-body ">
               <table class="table table-striped" id="example2" >
@@ -26,8 +26,8 @@
                   <tr align="center">
                     <th>NO SOLUSI</th>
                     <th>ID TIKET</th>
-                    <th>PENULIS</th>
                     <th>SOLUSI UNTUK PERMASALAHAN</th>
+                    <th>PENULIS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,8 +35,8 @@
                   <tr class="odd gradeX" >
                     <td><?php echo $row->id_solusi; ?></td>
                     <td><?php echo $row->id_tiket; ?></td>
-                    <td><?php echo $row->nip; ?></td>
                     <td><?php echo $row->judul_solusi; ?></td>
+                    <td><?php echo $row->nama_pegawai; ?></td>
                   </tr>
 				<?php } ?>
 				</tbody>

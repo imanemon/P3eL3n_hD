@@ -87,12 +87,13 @@ class Helpdesk_model extends CI_Model {
         return $this->db->get();
     }
 	
-	function update_date($id, $date){
+	function update_date($id, $date, $nip){
 		$data = array(
 				'date_open' => $date,
 				'date_close' => $date,
 				'durasi' => 0,
 				'tutorial' => 0,
+				'taken_by' => $nip,
 			);
 		$this->db->where('id_tiket', $id);
 		$this->db->update('tiket', $data);
@@ -135,7 +136,7 @@ class Helpdesk_model extends CI_Model {
         $this->db->join('dampak','tiket.dampak=dampak.id_dampak');
         $this->db->join('kantor','tiket.kantor=kantor.id_kantor');
         $this->db->join('kategori','tiket.kategori=kategori.id_kategori');
-        $this->db->join('pegawai','tiket.staf_teknisi=pegawai.nip');
+        $this->db->join('pegawai','tiket.taken_by=pegawai.nip');
         $this->db->order_by('dampak', 'asc');
         $this->db->order_by('level_prioritas', 'asc');
         $this->db->order_by('tgl_awal_tiket', 'asc');
@@ -146,6 +147,7 @@ class Helpdesk_model extends CI_Model {
     function knowledge_base() {
         $this->db->select('*');
         $this->db->from('solusi');
+        $this->db->join('pegawai','solusi.nip=pegawai.nip');
         return $this->db->get();
     }
 	

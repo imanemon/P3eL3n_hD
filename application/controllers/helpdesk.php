@@ -20,12 +20,6 @@ class Helpdesk extends CI_Controller {
         $tugas_new = $this->helpdesk_model->tugas_baru()->result();
 		
 		
-		//ambil data NIP dari Session
-		$nip = $this->session->userdata('nip');
-		$team = $this->session->userdata('team');
-		if($team == NULL){
-			$team = "0";
-		}
         
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('teknisi_model');
@@ -124,6 +118,7 @@ class Helpdesk extends CI_Controller {
     }
 	
 	public function addTiket(){		
+		$nip = $this->session->userdata('nip');
 		$this->load->model('helpdesk_model');
 
 		$nama = $_POST['nama'];
@@ -201,7 +196,7 @@ class Helpdesk extends CI_Controller {
 			foreach ($tgl as $row){
 			   $get_tgl = $row->tgl_awal_tiket;
 			}
-			$this->helpdesk_model->update_date($namafilenew,$get_tgl);
+			$this->helpdesk_model->update_date($namafilenew,$get_tgl,$nip);
 		}
 
 		//cek apakah attachment diisi
@@ -215,9 +210,9 @@ class Helpdesk extends CI_Controller {
 			$extension = pathinfo($nama_file, PATHINFO_EXTENSION);
 			$folder_name = $namafilenew;
 			if($nama_file != NULL){
-				$target_dir = "C:/xampp/htdocs/PeElEn-HD/file/";
+				$target_dir = "C:/xampp/htdocs/P3eL3n_hD/file/";
 				$new_folder=mkdir($target_dir."/".$folder_name, 0777, true);
-				$target_dir = "C:/xampp/htdocs/PeElEn-HD/file/". $folder_name ."/";
+				$target_dir = "C:/xampp/htdocs/P3eL3n_hD/file/". $folder_name ."/";
 				$target_file = $target_dir . $namafilenew . "." . $extension;
 				$uploadOk = 1;
 				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

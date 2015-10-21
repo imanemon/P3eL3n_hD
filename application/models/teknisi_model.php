@@ -17,7 +17,7 @@ class Teknisi_model extends CI_Model {
 		$this->db->from('tiket');
 		$this->db->where("YEAR(tgl_awal_tiket)",$year);
 		$this->db->where("MONTH(tgl_awal_tiket)",$month);
-		$this->db->where('staf_teknisi', $teknisi);
+		$this->db->where($where);
 		$this->db->where('status', '1');
 		return $this->db->count_all_results();
 	}
@@ -84,6 +84,7 @@ class Teknisi_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tiket');
         $this->db->join('customer','tiket.customer=customer.id_customer');
+        $this->db->join('pegawai','tiket.taken_by=pegawai.nip');
         $this->db->join('kode_status','tiket.status=kode_status.id_status');
         // $this->db->join('attachment','tiket.attachment=attachment.id_attachment');
 		$this->db->where('tiket.id_tiket', $id_tiket);
@@ -109,10 +110,11 @@ class Teknisi_model extends CI_Model {
     }
 	
 	//fungsi untuk update 1 table pada tiket setelah teknisi mengambil tugasnya dan status di ubah jadi open
-	function update_tiket($id_tiket,$tgl_mulai) {
+	function update_tiket($id_tiket,$tgl_mulai,$nip) {
 		$data = array(
 			   'status' => '2', // 2 = status open
 			   'date_open' => $tgl_mulai,
+			   'taken_by' => $nip,
 			);
 
 		$this->db->where('id_tiket', $id_tiket);

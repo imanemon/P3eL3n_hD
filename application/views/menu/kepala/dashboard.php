@@ -6,10 +6,8 @@
     <div class="clearfix"></div>
     <div class="content">    
       <div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<div id="container-bar-dampak"></div>
-		</div>
-		<div class="col-md-6">
 		</div>
       </div>
 	  <br>  

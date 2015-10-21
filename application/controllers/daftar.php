@@ -43,6 +43,7 @@ class Daftar extends CI_Controller {
 		$email = $this->input->post('email');
 		$username = $this->input->post('username');
 		$password = md5($this->input->post('password'));
+		$password2 = md5($this->input->post('password2'));
 		$kantor = $this->input->post('kantor');
 		$jabatan = $this->input->post('jabatan');
 		$sub_divisi = $this->input->post('sub_divisi');
@@ -53,10 +54,6 @@ class Daftar extends CI_Controller {
 		}else{
 			$team = NULL;
 		}
-		
-		echo $password;
-		echo "</br>";
-		echo $create_date;
 		
 		
 		$data = array(
@@ -75,9 +72,15 @@ class Daftar extends CI_Controller {
 		);
 		
 		$this->load->model('daftar_model');
-		$this->daftar_model->masukkan_data($data);
-				
-		$this->load->view('berhasil');
+		if($password == $password2){
+			$this->daftar_model->masukkan_data($data);	
+			$this->load->view('berhasil');
+		}else{
+			echo " <script>
+						alert('Password dan Ulang Password Berbeda');
+						history.go(-1);
+					</script>";
+		}
 		
 	}
 	

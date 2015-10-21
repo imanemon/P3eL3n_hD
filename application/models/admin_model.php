@@ -8,7 +8,7 @@ class Admin_model extends CI_Model {
 			// $this->load->library('url');
 			// $this->load->helper("back_handler");
 		}
-    
+	
 	public function aktivasi(){
         $this->db->select('*');
         $this->db->from('pegawai');
@@ -27,6 +27,15 @@ class Admin_model extends CI_Model {
 
 		$this->db->where('nip', $nip);
 		$this->db->update('pegawai', $data); 
+    }
+    
+	public function edit_pegawai(){
+        $this->db->select('*');
+        $this->db->from('pegawai');
+        $this->db->join('kantor','pegawai.kantor=kantor.id_kantor');
+        $this->db->join('jabatan','pegawai.jabatan=jabatan.id_jabatan');
+        $this->db->join('sub_divisi','pegawai.sub_divisi=sub_divisi.id_sub_divisi');
+        return $this->db->get();
     }
 	
 }

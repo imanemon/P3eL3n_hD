@@ -164,6 +164,11 @@
 									<td><input type="password" class="form-control" id="password" name="password" placeholder="masukkan Password Anda" required></td>
 								</tr>
 								<tr>
+									<td>Re-Type Password </td>
+									<td>:&nbsp;&nbsp;</td>
+									<td><input type="password" class="form-control" id="password2" name="password" placeholder="masukkan Password Anda" required></td>
+								</tr>
+								<tr>
 									<td>Kantor &nbsp;&nbsp; </td>
 									<td>:&nbsp;&nbsp;</td>
 									<td>

@@ -10,10 +10,13 @@ dibuat untuk menerangkan isi database agar Database dapat dimengerti
 	password (di-HASH menggunakan MD5)
 	create_date (tanggal dibuatnya akun)
 	last_login_date (tanggal akun terakhir login ke dalam sistem)
-	kantor (adalah id_kantor forigen key ke tabel kantor)
-	jabatan (adalah id_jabatan forigen key ke tabel jabatan)
-	sub_divisi (adalah id_sub_divisi forigen key ke tabel sub_divisi)
-	team (adalah id_team forigen key ke tabel team)
+	kantor (adalah id_kantor foreign key ke tabel kantor)
+	jabatan (adalah id_jabatan foreign key ke tabel jabatan)
+	sub_divisi (adalah id_sub_divisi foreign key ke tabel sub_divisi)
+	team (adalah id_team foreign key ke tabel team)
+	aktivasi (untuk melihat apakah user telah diaktifkan akunnya oleh admin)
+	tgl_diedit (untuk melihat tgl akun telah diedit oleh admin)
+	diedit_oleh (untuk melihat admin yang melakukan pengeditan)
 
 2. Jabatan (jabatan umum, dan beberapa jabatan khusus untuk digunakan pada sistem saja)
 	contoh jabatan khusus : Staf Helpdesk, Staf Technical Support, Admin Helpdesk
@@ -39,7 +42,7 @@ dibuat untuk menerangkan isi database agar Database dapat dimengerti
 6. Sub_divisi (Sub divisi merupakan bagian dari Divisi)
 	id_sub_divisi (int auto increment)
 	nama_sub_divisi
-	divisi (adalah id_divisi forigen key ke tabel divisi)
+	divisi (adalah id_divisi foreign key ke tabel divisi)
 	
 7. Dampak (dampak adalah kondisi dimana permasalahan akan berpengaruh pada Proses Bisnis perusahaan)
 	Dampak terdiri dari 3 level
@@ -69,7 +72,7 @@ dibuat untuk menerangkan isi database agar Database dapat dimengerti
 	id_customer (int auto increment)
 	nama_customer
 	no_hp_customer
-	kantor_customer (adalah id_kantor forigen key ke tabel kantor)
+	sub_divisi_customer (adalah id_sub_divisi foreign key ke tabel sub_divisi)
 	email_customer
 	time (timestamp)(waktu dimana helpdesk menyimpan data customer dipakai untuk mengambil data customer di tabel tiket)
 	other (informasi tambahan/ opsional untuk diisi)
@@ -90,13 +93,12 @@ dibuat untuk menerangkan isi database agar Database dapat dimengerti
 	deskripsi_masalah (deskripsi dari tiket secara mendetail)
 	staf_helfdesk (NIP dari staf helpdesk yang menerbitkan tiket baru)
 	staf_teknisi (NIP/id_team dari staf teknisi yang ditunjuk untuk mengerjakan/menyelesaikan permasalahan/tiket)
-	customer (adalah id_customer forigen key ke tabel customer)
-	kantor (adalah id_kantor forigen key ke tabel kantor)
-	kategori (adalah id_kategori forigen key ke tabel kategori)
-	level_prioritas (adalah id_level forigen key ke tabel level_prioritas)
-	level_prioritas (adalah id_level forigen key ke tabel level_prioritas)
-	status (adalah id_status forigen key ke tabel kode_status)
-	dampak (adalah id_dampak forigen key ke tabel dampak)
+	customer (adalah id_customer foreign key ke tabel customer)
+	kantor (adalah id_kantor foreign key ke tabel kantor)
+	kategori (adalah id_kategori foreign key ke tabel kategori)
+	level_prioritas (adalah id_level foreign key ke tabel level_prioritas)
+	status (adalah id_status foreign key ke tabel kode_status)
+	dampak (adalah id_dampak foreign key ke tabel dampak)
 	tutorial 
 		-tutorial ini diisi oleh angka dan akan berhubungan dengan tabel solusi
 		 dimana kondisi yang ada adalah :
@@ -106,9 +108,14 @@ dibuat untuk menerangkan isi database agar Database dapat dimengerti
 
 13. attachment (dibuat apabila helpdesk mengirimkan lampiran untuk penjelasan pada tabel tiket)
 	id_attachment (int auto increment)
-	id_tiket (adalah id_tiket forigen key ke tabel tiket, agar terhubung)
+	id_tiket (adalah id_tiket foreign key ke tabel tiket, agar terhubung)
 	file_name
 	file_size
 	upload_date
 	
-14. Solusi
+14. Solusi (dibuat apabila teknisi menerbitkan tutorial solusi untuk tiket yang dia telah kerjakan)
+	id_solusi (int auto increment)
+	id_tiket (adalah id_tiket foreign key ke tabel tiket, agar terhubung)
+	dilihat_sebanyak (dipakai untuk sistem knowledge management system / knowledge base yang berdiri sendiri)
+	deskripsi_solusi (isi dari tutorial solusi berbentuk long text)
+	nip (adalah nip foreign key ke tabel pegawai, agar terlihat siapa yang menerbitkan solusi tersebut)
