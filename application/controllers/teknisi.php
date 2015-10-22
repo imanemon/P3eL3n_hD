@@ -10,7 +10,7 @@ class Teknisi extends CI_Controller {
 		// $this->load->database('tiket');
 	}
  
-	 public function dashboard() {
+	public function dashboard() {
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
@@ -25,7 +25,6 @@ class Teknisi extends CI_Controller {
 		$year = date("Y");
 		$month = date("m");
 		$date = date("Y-m-d");
-		// echo $date;
 		
 		//menghitung semua tiket tahun ini
 		$tahun_ini =  $this->general_model->tahun_ini($year);
@@ -49,7 +48,8 @@ class Teknisi extends CI_Controller {
 		$count_tugas_baru = $this->teknisi_model->count_tugas_baru($nip,$team);
 		$count_lapor_selesai = $this->teknisi_model->count_lapor_selesai($nip,$team);
 		$count_buat_solusi = $this->teknisi_model->count_buat_solusi($nip,$team);
-
+		
+		//memanggil model
 		$this->load->model('teknisi_model');
 		$tugas_baru = $this->teknisi_model->tugas_baru($nip,$team)->result();
 		
@@ -85,7 +85,6 @@ class Teknisi extends CI_Controller {
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
-        
 		if($team == NULL){
 			$team = "0";
 		}
@@ -121,13 +120,19 @@ class Teknisi extends CI_Controller {
 		}
     }
 	
-		function download_file(){
+	//fungsi untuk mendownload
+	function download_file(){
+		//memanggil helper download
 		$this->load->helper('download');
+		//mengambil lokasi dari file untuk di download
 		$data = file_get_contents('file/'.$this->uri->segment(3).'/'.$this->uri->segment(4)); // Read the file's contents
+		//memberikan nama untuk file yang akan didownload
 		$name = $this->uri->segment(4);
+		//memanggil fungsi force download
 		force_download($name, $data);
 	}
 	
+	//fungsi untuk mengambil Data
 	public function getData(){
 		$nip = $this->session->userdata('nip');
 		
@@ -208,9 +213,11 @@ class Teknisi extends CI_Controller {
 			
 	}
 	
+	//fungsi untuk update data tiket yang sudah selesai
 	public function update_selesai(){		
 		$id_tiket = $this->input->post('id_tiket');
 		
+		//mengecek apakah tutorial 
 		if($this->input->post('tutorial') != NULL){
 			$tutorial = $this->input->post('tutorial');
 		}else{
@@ -223,7 +230,6 @@ class Teknisi extends CI_Controller {
 		//memanggil fungsi durasi waktu
 		$open = strtotime($this->input->post('date_open'));
 		$close = strtotime(date("Y-m-d H:i:s", strtotime('+5 hours')));
-		
 		$durasi = $close - $open;
 		
 		//memasukkan ke dalam database
@@ -241,6 +247,7 @@ class Teknisi extends CI_Controller {
 		
 	}
 	
+	//mengambil data tiket yang akan dilaporkan selesai
 	public function tugas_selesai(){
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
@@ -280,6 +287,7 @@ class Teknisi extends CI_Controller {
 			}
 	}
 	
+	//mengambil data tiket yang sudah selesai dikerjakan dan yang perlu dibuatkan tutorial solusinya
 	public function buat_solusi(){
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
@@ -297,26 +305,26 @@ class Teknisi extends CI_Controller {
 		$count_lapor_selesai = $this->teknisi_model->count_lapor_selesai($nip,$team);
 		$count_buat_solusi = $this->teknisi_model->count_buat_solusi($nip,$team);
 		
-			//daftarkan session
-            $data = array(
-                'buat_solusi' => $buat_solusi,
-				'count_tugas_baru' => $count_tugas_baru,
-				'count_lapor_selesai' => $count_lapor_selesai,
-				'count_buat_solusi' => $count_buat_solusi,
-            );
-            $this->session->set_userdata($data);
-			
-			// $this->load->view('tampil_tugas_baru', $teknisi);
-			$data = $this->session->userdata();
-			if($data['logged'] == TRUE && $data['level'] == 7){
-				$this->load->view('menu/header',$data);
-				$this->load->view('menu/teknisi/buat_solusi');
-				$this->load->view('menu/footer');
-				$this->load->view('menu/teknisi/plugin');
-			}
-			else {
-				redirect('login/index');
-			}
+		//daftarkan session
+		$data = array(
+			'buat_solusi' => $buat_solusi,
+			'count_tugas_baru' => $count_tugas_baru,
+			'count_lapor_selesai' => $count_lapor_selesai,
+			'count_buat_solusi' => $count_buat_solusi,
+		);
+		$this->session->set_userdata($data);
+		
+		// $this->load->view('tampil_tugas_baru', $teknisi);
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 7){
+			$this->load->view('menu/header',$data);
+			$this->load->view('menu/teknisi/buat_solusi');
+			$this->load->view('menu/footer');
+			$this->load->view('menu/teknisi/plugin');
+		}
+		else {
+			redirect('login/index');
+		}
 	}
 	
 	public function form_solusi(){

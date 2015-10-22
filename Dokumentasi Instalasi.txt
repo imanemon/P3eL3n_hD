@@ -1,8 +1,16 @@
 Dokumentasi Instalasi Helpdesk
 
+Base URL
 - ganti base_url pada config->config.php menjadi lokasi hostingnya
 
 
 UploadAttachment
 -ganti path lokasinya menjadi lokasi hosting
-	pada : controller->helpdesk 	fungsi : addTiket
+	pada : controller->helpdesk.php 	fungsi : addTiket
+	cari : $target_dir
+	
+	
+Encryption Key
+- mengisi enkripsi proses agar tidak mudah ditebak orang lain (standar Codeigniter)
+	pada : config->config.php
+	cari : $config['encryption_key']

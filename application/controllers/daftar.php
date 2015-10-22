@@ -52,7 +52,7 @@ class Daftar extends CI_Controller {
 		if($this->input->post('team') != NULL){
 			$team = $this->input->post('team');
 		}else{
-			$team = NULL;
+			$team = '0';
 		}
 		
 		

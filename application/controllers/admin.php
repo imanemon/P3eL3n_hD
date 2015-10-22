@@ -77,6 +77,7 @@ class Admin extends CI_Controller {
 		}
     }	
 	
+	//fungsi untuk mengaktifkan akun dari pegawai
 	public function aktivasi() {
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
@@ -137,19 +138,73 @@ class Admin extends CI_Controller {
 		
 	}
 	
-	
+	public function update_data_pegawai(){
+		
+		$nip = $this->input->post('nip');
+		$kantor = $this->input->post('kantor');		
+		$sub_divisi = $this->input->post('sub_divisi');		
+		$jabatan = $this->input->post('jabatan');		
+		$team = $this->input->post('team');		
+		$tgl_diedit = date("Y-m-d H:i:s", strtotime('+5 hours'));
+		$diedit_oleh = $this->session->userdata('nip');;
+		
+		//memanggil model untuk melakukan update pada fungsi update_tiket di model
+		$this->load->model('admin_model');
+		
+		$this->admin_model->update_data_pegawai($nip, $kantor, $sub_divisi, $jabatan, $team, $tgl_diedit, $diedit_oleh);
+		
+		//mengecek previlage dari pegawai, 8 untuk teknisi
+		
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 8){
+			redirect('admin/edit_pegawai');
+		}
+		else {
+			redirect('login/index');
+		}
+		
+	}
+		
 	public function edit_pegawai() {
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
 		
+		
+		//mengecek previlage pegawai, 8 untuk teknisi
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 8){
+			$this->load->view('menu/header',$data);
+			$this->load->view('menu/admin/edit_pegawai');
+			$this->load->view('menu/footer');
+			$this->load->view('menu/helpdesk/plugin');
+		}
+		else {
+			redirect('login/index');
+		}
+    }
+	
+	public function form_edit_pegawai() {
+		//ambil data NIP dari Session
+		$nip = $this->session->userdata('nip');
+		
+		$id_pegawai = $this->input->post('nip');
+		
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('admin_model');
-		$edit_pegawai = $this->admin_model->edit_pegawai()->result();
+		$edit_pegawai = $this->admin_model->edit_pegawai($id_pegawai)->result();
+		$get_kantor = $this->admin_model->get_kantor()->result();
+		$get_jabatan = $this->admin_model->get_jabatan()->result();
+		$get_sub_divisi = $this->admin_model->get_sub_divisi()->result();
+		$get_team = $this->admin_model->get_team()->result();
 		// print_r($aktivasi);
 		
 		//daftarkan session
 		$data = array(
 			'edit_pegawai' => $edit_pegawai,
+			'get_kantor' => $get_kantor,
+			'get_jabatan' => $get_jabatan,
+			'get_sub_divisi' => $get_sub_divisi,
+			'get_team' => $get_team,
 		);
 		$this->session->set_userdata($data);
 		
@@ -157,9 +212,9 @@ class Admin extends CI_Controller {
 		$data = $this->session->userdata();
 		if($data['logged'] == TRUE && $data['level'] == 8){
 			$this->load->view('menu/header',$data);
-			$this->load->view('menu/admin/edit_pegawai');
+			$this->load->view('menu/admin/form_edit_pegawai');
 			$this->load->view('menu/footer');
-			$this->load->view('menu/teknisi/plugin');
+			$this->load->view('menu/helpdesk/plugin');
 		}
 		else {
 			redirect('login/index');

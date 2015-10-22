@@ -10,8 +10,9 @@ class Kepala extends CI_Controller {
 		// $this->load->database('tiket');
 	}
  
-	 public function dashboard() {
-		//ambil data NIP dari Session
+	//fungsi menampilkan dashboard
+	public function dashboard() {
+		//ambil data NIP dan team dari Session
 		$nip = $this->session->userdata('nip');
 		$team = $this->session->userdata('team');
 		if($team == NULL){
@@ -26,7 +27,6 @@ class Kepala extends CI_Controller {
 		$year = date("Y");
 		$month = date("m");
 		$date = date("Y-m-d");
-		// echo $date;
 		
 		//menghitung semua tiket tahun ini
 		$tahun_ini =  $this->general_model->tahun_ini($year);
@@ -50,10 +50,6 @@ class Kepala extends CI_Controller {
 		$count_tugas_baru = $this->teknisi_model->count_tugas_baru($nip,$team);
 		$count_lapor_selesai = $this->teknisi_model->count_lapor_selesai($nip,$team);
 		$count_buat_solusi = $this->teknisi_model->count_buat_solusi($nip,$team);
-
-		
-		$year = date("Y");
-		$month = date("m");
         
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('kepala_model');
@@ -81,6 +77,8 @@ class Kepala extends CI_Controller {
 			'rata2durasi' => $rata2durasi,
 			'tiket_dampak' => $tiket_dampak,
 		);
+		
+		//menyimpan pada session
 		$this->session->set_userdata($data);
 		
 		//mengecek previlage pegawai, 4 untuk kepala
@@ -95,21 +93,18 @@ class Kepala extends CI_Controller {
 		}
     }	
 	
+	//fungsi untuk memanggil pengelompokan tiket sesuai kategori
 	public function tiket_kategori(){
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
-
+		
+		//mendefinisikan tahun dan bulan saat ini
 		$year = date("Y");
 		$month = date("m");
         
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('kepala_model');
 		$tiket_kategori = $this->kepala_model->tiket_kategori($month,$year)->result();
-		
-		
-		// echo "<pre>";
-		// var_dump($tiket_kategori);
-		// echo "</pre>";
 		
 		$data = array(
 			'tiket_kategori' => $tiket_kategori,
@@ -131,6 +126,7 @@ class Kepala extends CI_Controller {
 		
 	}
 	
+	//fungsi untuk memanggil pengelompokan tiket sesuai kantor
 	public function tiket_kantor(){
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
@@ -141,11 +137,6 @@ class Kepala extends CI_Controller {
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('kepala_model');
 		$tiket_kantor = $this->kepala_model->tiket_kantor($month,$year)->result();
-		
-		
-		// echo "<pre>";
-		// var_dump($tiket_kategori);
-		// echo "</pre>";
 		
 		$data = array(
 			'tiket_kantor' => $tiket_kantor,
@@ -167,6 +158,7 @@ class Kepala extends CI_Controller {
 		
 	}
 	
+	//fungsi untuk memanggil data perorangannya
 	public function perorangan(){
 		//ambil data NIP dari Session
 		$nip = $this->session->userdata('nip');
@@ -177,11 +169,6 @@ class Kepala extends CI_Controller {
 		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
 		$this->load->model('kepala_model');
 		$perorangan = $this->kepala_model->perorangan($month,$year)->result();
-		
-		
-		// echo "<pre>";
-		// var_dump($tiket_kategori);
-		// echo "</pre>";
 		
 		$data = array(
 			'perorangan' => $perorangan,

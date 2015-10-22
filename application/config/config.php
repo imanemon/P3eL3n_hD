@@ -17,6 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
+
+//silahkan diubah sesuai dengan lokasi server/hosting
 $config['base_url'] = 'http://localhost/P3eL3n_hD/';
 
 /*
@@ -305,6 +307,8 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
+
+//silahkan isi sesuai keinginan anda
 $config['encryption_key'] = 'helpdeskPLN0788';
 
 /*
