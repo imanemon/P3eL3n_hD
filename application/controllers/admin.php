@@ -166,4 +166,80 @@ class Admin extends CI_Controller {
 		}
     }
 	
+	public function tambah($hlmn){
+		// data divisi
+		$this->load->model('admin_model');
+        $getdivisi = $this->admin_model->getDivisi()->result();
+		
+		//ambil data NIP dari Session
+		$nip = $this->session->userdata('nip');
+		
+		//memanggil model untuk mendapatkan data tiket yang ditugaskan padanya
+		$this->load->model('admin_model');
+		$edit_pegawai = $this->admin_model->edit_pegawai()->result();
+		// print_r($aktivasi);
+		
+		//daftarkan session
+		$data = array(
+			'edit_pegawai' => $edit_pegawai,
+			'divisi' => $getdivisi,
+		);
+		$this->session->set_userdata($data);
+		
+		
+		//mengecek previlage pegawai, 7 untuk teknisi
+		$data = $this->session->userdata();
+		if($data['logged'] == TRUE && $data['level'] == 8){
+			$this->load->view('menu/header',$data);
+			$this->load->view('menu/admin/'. $hlmn);
+			$this->load->view('menu/footer');
+			$this->load->view('menu/teknisi/plugin');
+		}
+		else {
+			redirect('login/index');
+		}
+	}
+	
+	public function addData(){
+		$this->load->model('admin_model');
+		
+		if(isset($_POST["nama_tim"])){
+			$data = array(
+				'nama_team' => $_POST['nama_tim'],
+			);
+			$this->admin_model->addData('team', $data);
+			echo "berhasil tambah team!</br>";
+			echo '<a href="http://localhost/P3eL3n_hD/admin/dashboard">KEMBALI</a>';
+		}
+		
+		if(isset($_POST["kategori"])){
+			$data = array(
+				'nama_kategori' => $_POST['kategori'],
+				'deskripsi_kategori' => $_POST['des_kategori'],
+			);
+			$this->admin_model->addData('kategori', $data);
+			echo "berhasil tambah kategori!</br>";
+			echo '<a href="http://localhost/P3eL3n_hD/admin/dashboard">KEMBALI</a>';
+		}
+		
+		if(isset($_POST["divisi"])){
+			$data = array(
+				'nama_divisi' => $_POST['divisi'],
+			);
+			$this->admin_model->addData('divisi', $data);
+			echo "berhasil tambah divisi!</br>";
+			echo '<a href="http://localhost/P3eL3n_hD/admin/dashboard">KEMBALI</a>';
+		}
+		
+		if(isset($_POST["sub_divisi"])){
+			$data = array(
+				'nama_sub_divisi' => $_POST['sub_divisi'],
+				'divisi' => $_POST['xdivisi'],
+			);
+			$this->admin_model->addData('sub_divisi', $data);
+			echo "berhasil tambah sub divisi!</br>";
+			echo '<a href="http://localhost/P3eL3n_hD/admin/dashboard">KEMBALI</a>';
+		}
+	} 
+	
 }

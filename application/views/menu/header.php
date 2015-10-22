@@ -146,10 +146,10 @@
 					<li class="start "> <a href="<?php echo base_url('admin/dashboard')?>" >  <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a></li>
 					<li class=""> <a href="<?php echo base_url('admin/aktivasi')?>"> <i class="fa fa-check-square-o"></i> <span class="title">Aktivasi Pegawai</span></a> </li>
 					<li class=""> <a href="<?php echo base_url('admin/edit_pegawai')?>"> <i class="fa fa-edit"></i> <span class="title">Edit Pegawai</span></a> </li>
-					<li class=""> <a href="<?php echo base_url('#')?>"> <i class="fa fa-edit"></i> <span class="title">Tim Baru</span></a> </li>
-					<li class=""> <a href="<?php echo base_url('#')?>"> <i class="fa fa-edit"></i> <span class="title">Kategori Baru</span></a> </li>
-					<li class=""> <a href="<?php echo base_url('#')?>"> <i class="fa fa-edit"></i> <span class="title">Divisi Baru</span></a> </li>
-					<li class=""> <a href="<?php echo base_url('#')?>"> <i class="fa fa-edit"></i> <span class="title">Sub Divisi Baru</span></a> </li>
+					<li class=""> <a href="<?php echo base_url('admin/tambah/tim_baru')?>"> <i class="fa fa-users"></i> <span class="title">Tim Baru</span></a> </li>
+					<li class=""> <a href="<?php echo base_url('admin/tambah/kategori_baru')?>"> <i class="fa fa-folder"></i> <span class="title">Kategori Baru</span></a> </li>
+					<li class=""> <a href="<?php echo base_url('admin/tambah/divisi_baru')?>"> <i class="fa fa-laptop"></i> <span class="title">Divisi Baru</span></a> </li>
+					<li class=""> <a href="<?php echo base_url('admin/tambah/sub_divisi_baru')?>"> <i class="fa fa-hdd-o"></i> <span class="title">Sub Divisi Baru</span></a> </li>
 				</ul>
 			<?php
 			}

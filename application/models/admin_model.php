@@ -38,6 +38,15 @@ class Admin_model extends CI_Model {
         return $this->db->get();
     }
 	
+	function addData($tabel, $data){
+		$this->db->insert($tabel, $data);
+	}
+	
+	function getDivisi(){
+		$this->db->select('*');
+        $this->db->from('divisi');
+        return $this->db->get();
+	}
 }
  
 /* End of file admin_model.php */
